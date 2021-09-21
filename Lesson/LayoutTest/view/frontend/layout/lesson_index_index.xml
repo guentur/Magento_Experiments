@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="lesson_render" htmlTag="div" htmlClass="lesson_render">
+                <block name="lesson_content_block"
+                       class="Lesson\LayoutTest\Block\HelloTemplate"
+                       template="Lesson_LayoutTest::first_template.phtml"
+                >
+                    <arguments>
+                        <argument name="lesson_view_model" xsi:type="object">Lesson\LayoutTest\ViewModel\LessonLogic</argument>
+                        <argument name="lesson_null_value" xsi:type="null"/>
+                        <argument name="lesson_number_value" xsi:type="number">32322</argument>
+                        <argument name="lesson_string_value" xsi:type="string">Lesson\LayoutTest\ViewModel\LessonLogic</argument>
+                        <argument name="lesson_boolean_value" xsi:type="boolean">true</argument>
+                        <argument name="lesson_array_value" xsi:type="array">
+                            <item name="0" xsi:type="boolean">true</item>
+                            <item name="1" xsi:type="boolean">false</item>
+                        </argument>
+                    </arguments>
+                </block>
+            </container>
+            <block name="lesson_block" class="Magento\Framework\View\Element\Template" template="Lesson_LayoutTest::render_blocks.phtml">
+                <container name="lesson_block_container" >
+                    <block name="lesson_block_container_block"
+                           class="Magento\Framework\View\Element\Template"
+                           template="Lesson_LayoutTest::hello_template.phtml">
+                        <block name="lesson_block_container_block_block"
+                               class="Magento\Framework\View\Element\Template"
+                               template="Lesson_LayoutTest::hello_template.phtml"
+                        />
+                    </block>
+                    <block name="lesson_block_container_block2"
+                           class="Magento\Framework\View\Element\Template"
+                           template="Lesson_LayoutTest::hello_template.phtml"
+                    />
+                </container>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
